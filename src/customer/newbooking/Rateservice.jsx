@@ -3,7 +3,7 @@ import './NewBooking.css'
 
 function Rateservice() {
   return (
-    <div className='f12'>Rateservicefycyfvgbhjklyuyyhpipyiiyghyg</div>
+    <div className='f12'>Rate service</div>
   )
 }
 

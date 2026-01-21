@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
-import ShipmentCard from "./ShipmentCard";
+import ShipmentCard from "./Shipmentcard";
 import "./MyShipments.css";
 
 export default function MyShipments() {
