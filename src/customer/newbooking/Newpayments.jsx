@@ -3,7 +3,7 @@ import './NewBooking.css'
 
 function Newpayments() {
   return (
-    <div>Newpayments</div>
+    <div>Newpayments from Lee</div>
   )
 }
 
