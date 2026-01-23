@@ -43,7 +43,7 @@ import { useState } from 'react'
 import './NewBooking.css'
 
 export default function Newpayments({ selectedRate, onNext }) {
-  const [method, setMethod] = useState('upi')
+  const [method, setMethod] = useState('UPI')
 
   return (
   <>
@@ -54,45 +54,40 @@ export default function Newpayments({ selectedRate, onNext }) {
 
       <div className="booking-card-pmt">
         <div className="method-grid">
-          <div className="status-card1" >
-                  <div className="card-cont">
-                      <i class="logoimg bi bi-clock"></i>
-                      <div className="name">PayPal</div>
-                      <div className="status">Fast & Secure</div>
-                  </div>
-                </div>
-
-                <div className="status-card2" >
-                  <div className="card-cont">
-                        <i class="logoimg bi bi-fire"></i>
-                    <div className="name">Deliveried</div>
-                    <div className="status">Completed</div>
-                  </div>
-                </div>
-
-                <div className="status-card3" >
-                  <div className="card-cont">
-                        <i class="logoimg bi bi-hourglass-split"></i>
-                    <div className="name">Delayed</div>
-                    <div className="status">Need Attention</div>
-                  </div>
-                </div>
-
-                <div className="status-card4" >
-                  <div className="card-cont">
-                    <i class="logoimg bi bi-ban"></i>
-                    <div className="name">Cancelled</div>
-                    <div className="status">Refunded</div>
-                  </div>
-                </div>        </div>
-        <div className="method-grid">
-
-          {['PAYPAL', 'Card','UPI', 'NetBanking'].map(m => (
-            <div key={m} className={`method-item ${method === m ? 'active' : ''}`} onClick={() => setMethod(m)}>
-              {m}
+          <div className={`method-item status-card1 ${method === 'PayPal' ? 'active' : ''}`} onClick={() => setMethod('PayPal')}>
+            <div className="card-cont">
+              <i class="logoimg bi bi-paypal"></i>
+              <div className="name">PayPal</div>
+              <div className="status">Fast & Secure</div>
+              
             </div>
-          ))}
+          </div>
+
+          <div className={`method-item status-card2 ${method === 'Card' ? 'active' : ''}`} onClick={() => setMethod('Card')}>
+            <div className="card-cont">
+              <i class="logoimg bi bi-credit-card"></i>
+              <div className="name">Credit/Debit Card</div>
+              <div className="status">Visa, Mastercard,etc.</div>
+            </div>
+          </div>
+
+          <div className={`method-item status-card3 ${method === 'UPI' ? 'active' : ''}`} onClick={() => setMethod('UPI')} >
+            <div className="card-cont">
+              <i class="logoimg bi bi-currency-dollar"></i>
+              <div className="name">UPI </div>
+              <div className="status">Google Pay,PhonePe</div>
+          </div>
         </div>
+
+          <div className={`method-item status-card4 ${method === 'NETBANKING' ? 'active' : ''}`} onClick={() => setMethod('NETBANKING')}>
+            <div className="card-cont">
+              <i class="logoimg bi bi-bank"></i>
+              <div className="name">Net Banking </div>
+              <div className="status">All major banks</div>
+            </div>
+          </div>     
+      </div>
+        
           <div className="checkout-payment">
             <div>{
               method=='UPI'?<div className="Upi-checkout"><h1>yes i am UPI</h1></div>:
