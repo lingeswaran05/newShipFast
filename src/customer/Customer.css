@@ -9,7 +9,6 @@ body{
     background: linear-gradient(180deg, #f8fbff 0%,#eef4ff 100%);
 }
 .rcont{
-
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -71,7 +70,7 @@ body{
     padding: 5px;
     gap: 10px;
 }
-.status-card1,.status-card2,.status-card3,.status-card4 {
+/* .status-card1,.status-card2,.status-card4 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto auto;
@@ -82,10 +81,36 @@ body{
   border: 2px solid #e5e7eb;
   box-shadow: 0 8px 24px rgba(15,23,42,0.08);
   transition: transform 200ms ease, box-shadow 200ms ease;
+} */
+
+.status-card1,.status-card2,.status-card3,.status-card4{
+  display: flex; 
+  padding: 25px;
+  padding-bottom: 0px;
+  border-radius: 16px;
+  max-width: 250px;
+  background: rgba(255,255,255,0.95);
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  .card-cont{
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logoimg{margin-bottom: 10px;}
+  .status{width: 100%;}
+  .name{width: 100%;}
+  .count{
+    position: relative;
+    left: 35px;
+    bottom: 40px;
+    font-size: 30px;
+  }
 }
 
-.status-card1:hover,.status-card2:hover,.status-card3:hover,.status-card4:hover{
-    transform: scale(1.04);
+.status-card1:hover,.status-card2:hover,.status-card3:hover,.statuss-card3:hover,.status-card4:hover{
     transition: transform 300ms ease, box-shadow 200ms ease, border-color 200ms ease;
     will-change: transform;
     .logoimg {
@@ -94,10 +119,10 @@ body{
         will-change: transform;
     }
 }
-.status-card1 :first-child{background-color: #2e8fff}
-.status-card2 :first-child{background-color: #6fdd5b}
-.status-card3 :first-child{background-color: #ff783a}
-.status-card4 :first-child{background-color: #ff2e2e}
+.status-card1 .logoimg{background-color: #2e8fff}
+.status-card2 .logoimg{background-color: #6fdd5b}
+.status-card3 .logoimg{background-color: #ff783a}
+.status-card4 .logoimg{background-color: #ff2e2e}
 
 .status-card1:hover{border:solid 2px  #2e8fff;}
 .status-card2:hover{border:solid 2px  #6fdd5b;}
@@ -146,17 +171,25 @@ body{
     gap: 20px;
 }
 .card1,.card2,.card3 {
+  background-color: white;
     padding: 32px 24px;
     border-radius: 18px;
     border: none;                     
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     box-shadow: 0 12px 30px rgba(15,23,42,0.12);
     transition: transform 200ms ease, box-shadow 200ms ease;
+    .name{
+      font-size: 25px;
+      font-weight:900;
+    }
+    .desc{
+      font-size: 20px;
+    }
 }
 .card1{  
+    color: rgb(214, 214, 214);
     background: linear-gradient(135deg, #4138eb, #8c2eff);color: white;
 }
 .rc3 h1 {

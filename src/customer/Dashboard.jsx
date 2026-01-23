@@ -9,30 +9,43 @@ function Dashboard() {
             <h3>Here's what's happening with your shipments</h3>
           </div>
           <div className="rc2">
+        
             <div className="status1">
+
                 <div className="status-card1" >
-                  <div className="logoimg"><i class="bi bi-clock"></i></div>
-                  <div className="name">Active</div>
-                  <div className="count">3</div>
-                  <div className="status">In Trasit</div>
+                  <div className="card-cont">
+                        <i class="logoimg bi bi-clock"></i>
+                    <div className="name">Active</div>
+                    <div className="status">In Trasit</div>
+                  </div>
+                  <div className="count"><h1>3</h1></div>
                 </div>
+
                 <div className="status-card2" >
-                  <div className="logoimg"><i class="bi bi-fire"></i></div>
-                  <div className="name">Deliveried</div>
-                  <div className="count">15</div>
-                  <div className="status">Completed</div>
+                  <div className="card-cont">
+                        <i class="logoimg bi bi-fire"></i>
+                    <div className="name">Deliveried</div>
+                    <div className="status">Completed</div>
+                  </div>
+                  <div className="count"><h1>15</h1></div>
                 </div>
+
                 <div className="status-card3" >
-                  <div className="logoimg"><i class="bi bi-hourglass-split"></i></div>
-                  <div className="name">Delayed</div>
-                  <div className="count">1</div>
-                  <div className="status">Need Attention</div>
+                  <div className="card-cont">
+                        <i class="logoimg bi bi-hourglass-split"></i>
+                    <div className="name">Delayed</div>
+                    <div className="status">Need Attention</div>
+                  </div>
+                  <div className="count"><h1>1</h1></div>
                 </div>
+
                 <div className="status-card4" >
-                  <div className="logoimg"><i class="bi bi-ban"></i></div>
-                  <div className="name">Cancelled</div>
-                  <div className="count">2</div>
-                  <div className="status">Refunded</div>
+                  <div className="card-cont">
+                    <i class="logoimg bi bi-ban"></i>
+                    <div className="name">Cancelled</div>
+                    <div className="status">Refunded</div>
+                  </div>
+                  <div className="count"><h1>2</h1></div>
                 </div>
             </div>
           </div>
