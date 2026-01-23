@@ -1,49 +1,28 @@
-// import React, { useState } from 'react';
-// import './NewBooking.css';
-
-// function Newpayments({ selectedRate, onNext }) {
-//   const [method, setMethod] = useState('paypal');
-
-//   return (
-//     <div className="payment-layout">
-//       <div className="booking-card payment-methods">
-//         <h3 className="section-heading">Payment Method</h3>
-//         <p className="sub-text">Choose your preferred payment method</p>
-
-//         <div className="method-grid">
-//           {['PayPal', 'Credit/Debit Card', 'UPI', 'Net Banking'].map((item) => (
-//             <div 
-//               key={item} 
-//               className={`method-item ${method === item.toLowerCase() ? 'active' : ''}`}
-//               onClick={() => setMethod(item.toLowerCase())}
-//             >
-//               {item}
-//             </div>
-//           ))}
-//         </div>
-
-
-
-//       <div className="order-summary-sidebar">
-//         <div className="booking-card">
-//           <h4 className="section-heading">Order Summary</h4>
-//           <div className="summary-row"><span>Service</span> <span>{selectedRate?.title}</span></div>
-//           <div className="summary-row"><span>Total</span> <span>₹{selectedRate?.total}</span></div>
-//           <div className="secure-badge">
-//             <i className="lock-icon">🔒</i> Your payment is encrypted and secure
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Newpayments;
 import { useState } from 'react'
 import './NewBooking.css'
-
+const Paypal = ({ totalpaypal }) => {
+  return (
+    <div className="paypal-content">
+      <h3><i className="logoimg bi bi-paypal"></i></h3>
+      <h3>PayPal Checkout</h3>
+      <h3 className="desc">
+        You will be redirected to PayPal to complete your payment securely
+      </h3>
+      <h3>Amount: ₹{totalpaypal?.total}</h3>
+    </div>
+  )
+}
+const Card = ()=>{return(
+  <><div className="h1">From Card Payment</div></>
+)}
+const UPI = ()=>{return(
+  <><div className="h1">From Upi Payment</div></>
+)}
+const NetBanking = ()=>{return(
+  <><div className="h1">From Net Banking Payment</div></>
+)}
 export default function Newpayments({ selectedRate, onNext }) {
-  const [method, setMethod] = useState('UPI')
+  const [method, setMethod] = useState('unselect')
 
   return (
   <>
@@ -87,16 +66,15 @@ export default function Newpayments({ selectedRate, onNext }) {
             </div>
           </div>     
       </div>
-        
-          <div className="checkout-payment">
-            <div>{
-              method=='UPI'?<div className="Upi-checkout"><h1>yes i am UPI</h1></div>:
-              method=='Card'?<div className="card-checkout"><h1>yes i am card</h1></div>:
-              method=='NetBanking'?<div className="NetBanking-checkout"><h1>yes i am NetBanking</h1></div>:
-              <div className="PAYPAL-checkout"><h1>yes i am PAYPAL</h1></div>
-            }</div>
-            <h3>PayPal Checkout</h3>
-          </div>
+      <div className="checkout-payment">
+        <div>{
+          method=='UPI'?<div className="Upi-checkout">{<UPI/>}</div>:
+          method=='Card'?<div className="card-checkout">{<Card/>}</div>:
+          method=='PayPal'?<div className="card-checkout">{<Paypal totalpaypal={selectedRate}/>}</div>:
+          method=='NETBANKING'?<div className="NetBanking-checkout">{<NetBanking/>}</div>:
+          <div className="PAYPAL-checkout"><h3>Click any Payent Method to pay</h3></div>
+        }</div>
+      </div>
          <button className="submit-btn wide" onClick={onNext}>
           Pay ₹{selectedRate?.total}
         </button>

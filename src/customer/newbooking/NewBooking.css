@@ -78,13 +78,70 @@
   cursor: pointer;
 }
 .checkout-payment{
+  display: flex;flex-direction: column;justify-content: center;
   border: solid 1px rgb(181, 177, 177) ;
   border-radius: 15px;
   color: blue;
-  height: 20vh;
+  height: max-content;text-align: center;
+  align-items: center;
+  .logoimg{
+    color: #0f172a;
+  }
 }
 .method-item.active { border-color: #4f46e5; color: #4f46e5; background: #eef2ff; }
 
 .btn-group { display: flex; gap: 15px; margin-top: 30px; }
 .back-btn { background: #f1f5f9; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; }
 .submit-btn.wide { width: 100%; margin-top: 20px; }
+
+
+.status-card1,.status-card2,.status-card3,.status-card4{
+  display: flex; 
+  padding: 25px;
+  padding-bottom: 0px;
+  border-radius: 16px;
+  max-width: 250px;
+  background: rgba(255,255,255,0.95);
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  .card-cont{
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;margin-bottom: -25px;
+  }
+  .logoimg{margin-bottom: 10px;}
+
+  .count{
+    position: relative;
+    left: 35px;
+    bottom: 40px;
+    font-size: 30px;
+  }
+  .name{  
+    font-size: larger; 
+    font-weight: 800;}
+  .name,.status{
+    width: 100%;
+    position: relative;
+    bottom: 80px;
+    left: 90px;
+  }
+}
+.status-card2{
+  .name,.status{
+    width: 100%;
+    position: relative;
+    bottom: 80px;
+    left: 80px;
+  }
+}
+.status-card1{
+  .name,.status{
+    width: 100%;
+    position: relative;
+    bottom: 80px;
+    left: 110px;
+  }
+}
