@@ -1,5 +1,13 @@
 import './NewBooking.css'
-
+const Card = ()=>{return(
+  <><div className="h1">From Card Payment</div></>
+)}
+const UPI = ()=>{return(
+  <><div className="h1">From Upi Payment</div></>
+)}
+const NetBanking = ()=>{return(
+  <><div className="h1">From Net Banking Payment</div></>
+)}
 export default function Labels() {
   return (
     <div className="booking-card animate-fade-in">
