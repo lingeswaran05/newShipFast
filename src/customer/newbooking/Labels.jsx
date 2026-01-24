@@ -1,20 +1,3 @@
-// import React from 'react';
-// import './NewBooking.css';
-
-// function Labels() {
-//   return (
-//     <div className="booking-card success-card animate-pop">
-
-
-//       <div className="btn-group centered">
-//         <button className="back-btn">Download PDF</button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Labels;
-
 import './NewBooking.css'
 
 export default function Labels() {
