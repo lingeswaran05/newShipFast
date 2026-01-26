@@ -86,7 +86,6 @@
   display: flex;flex-direction: column;justify-content: center;
   border: solid 1px rgb(181, 177, 177) ;
   border-radius: 15px;
-  color: blue;
   height: max-content;text-align: center;
   align-items: center;
   .logoimg{
@@ -106,4 +105,79 @@
 .paypal-logo{color: #0f172a;font-size: 50px;
   background-color: rgb(157, 26, 251);
   border-radius: 50%;padding: 15px;
+}
+.card-payment-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+
+  .holder-name-field,.number-field{
+    grid-column: span 2;
+    input{
+      width: 100%;
+    }
+  }
+  .cvv-field{
+    input{
+      width: 100%;
+    }
+  }
+ label {
+  font-family: sans-serif;
+  font-size: 14px;
+  display: flex;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+input {
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  min-width: 90%;
+  font-size: 16px;display: flex;
+  color: #94a3b8;
+}
+input:focus {
+  border-color: #3b82f6;
+}
+}
+.upiId-field{input{width: 150%;}}
+.upi-message-section{
+    width: 500px;position: relative;
+    left: 40px;
+    background: #fef7dd;padding: 10px;
+    border: 1px solid rgb(255, 153, 0);color: rgb(125, 14, 14);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.upi-payment-name,.banking-payment-name{
+  i{
+    font-size: 30px;font-weight: 500;
+    background: #ff8649;border-radius: 50px;
+    padding: 10px;
+  }
+}
+.banking-payment-name{i{background: #ff4141;}}
+.banking-message-section{
+  position: relative;
+    width: 500px;
+    left: 100px;
+    background: #e1ffe6;padding: 10px;
+    border: 1px solid rgb(0, 255, 55);color: rgb(110, 111, 111);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.card-payment-grid{
+  margin-left: 80px;
+}
+  .bank-select{
+    width: 500px;
+    height: 40px;
+    border-radius: 15px;
+  }
+.card-payment-grid{
+  margin-bottom: 20px;
 }
