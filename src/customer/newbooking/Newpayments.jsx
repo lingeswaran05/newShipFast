@@ -3,7 +3,7 @@ import './NewBooking.css'
 const Paypal = ({ totalpaypal }) => {
   return (
     <div className="paypal-content">
-      <h3><i className="logoimg bi bi-paypal"></i></h3>
+      <h3><i className="paypal-logo bi bi-paypal"></i></h3>
       <h3>PayPal Checkout</h3>
       <h3 className="desc">
         You will be redirected to PayPal to complete your payment securely
@@ -12,15 +12,40 @@ const Paypal = ({ totalpaypal }) => {
     </div>
   )
 }
-const Card = ()=>{return(
-  <><div className="h1">From Card Payment</div></>
-)}
-const UPI = ()=>{return(
-  <><div className="h1">From Upi Payment</div></>
-)}
-const NetBanking = ()=>{return(
-  <><div className="h1">From Net Banking Payment</div></>
-)}
+const Card = ({ totalpaypal })=>{
+  return (
+    <div className="paypal-content">
+      <h3><i className="paypal-logo bi bi-paypal"></i></h3>
+      <h3>PayPal Checkout</h3>
+      <h3 className="desc">
+        You will be redirected to PayPal to complete your payment securely
+      </h3>
+      <h3>Amount: ₹{totalpaypal?.total}</h3>
+    </div>
+  )
+}
+const UPI = ({ totalpaypal })=>{
+  return (
+    <div className="paypal-content">
+      <h3><i className="paypal-logo bi bi-paypal"></i></h3>
+      <h3>PayPal Checkout</h3>
+      <h3 className="desc">
+        You will be redirected to PayPal to complete your payment securely
+      </h3>
+      <h3>Amount: ₹{totalpaypal?.total}</h3>
+    </div>
+  )
+}
+const NetBanking = ({ totalpaypal })=>{return (
+    <div className="paypal-content">
+      <h3><i class="logoimg bi bi-bank"></i></h3>
+      <h3>PayPal Checkout</h3>
+      <h3 className="desc">
+        You will be redirected to PayPal to complete your payment securely
+      </h3>
+      <h3>Amount: ₹{totalpaypal?.total}</h3>
+    </div>
+  )}
 export default function Newpayments({ selectedRate, onNext }) {
   const [method, setMethod] = useState('unselect')
 
@@ -32,13 +57,14 @@ export default function Newpayments({ selectedRate, onNext }) {
     <div className="payment-layout animate-fade-in">
 
       <div className="booking-card-pmt">
+
         <div className="method-grid">
+
           <div className={`method-item status-card1 ${method === 'PayPal' ? 'active' : ''}`} onClick={() => setMethod('PayPal')}>
             <div className="card-cont">
               <i class="logoimg bi bi-paypal"></i>
               <div className="name">PayPal</div>
-              <div className="status">Fast & Secure</div>
-              
+              <div className="status">Fast & Secure</div> 
             </div>
           </div>
 
@@ -68,10 +94,10 @@ export default function Newpayments({ selectedRate, onNext }) {
       </div>
       <div className="checkout-payment">
         <div>{
-          method=='UPI'?<div className="Upi-checkout">{<UPI/>}</div>:
-          method=='Card'?<div className="card-checkout">{<Card/>}</div>:
+          method=='UPI'?<div className="Upi-checkout">{<UPI totalpaypal={selectedRate}/> }</div>:
+          method=='Card'?<div className="card-checkout">{<Card totalpaypal={selectedRate}/>}</div>:
           method=='PayPal'?<div className="card-checkout">{<Paypal totalpaypal={selectedRate}/>}</div>:
-          method=='NETBANKING'?<div className="NetBanking-checkout">{<NetBanking/>}</div>:
+          method=='NETBANKING'?<div className="NetBanking-checkout">{<NetBanking totalpaypal={selectedRate}/>}</div>:
           <div className="PAYPAL-checkout"><h3>Click any Payent Method to pay</h3></div>
         }</div>
       </div>

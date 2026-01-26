@@ -16,7 +16,14 @@
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
   border:  solid 1px rgb(226, 225, 225);
 }
-
+.method-item{
+  padding: 15px;
+  height: 80px;width: 300px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+}
 .noofst {
   background-color: rgb(228, 226, 226);
   padding: 5px;
@@ -69,14 +76,12 @@
   grid-template-columns: 4fr 1fr;
   gap: 24px; }
 
-.method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
-.method-item {
-  padding: 15px;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-}
+
+.method-grid { display: grid;
+   grid-template-columns: 1fr 1fr;
+    gap: 12px; 
+    margin: 20px 0; }
+
 .checkout-payment{
   display: flex;flex-direction: column;justify-content: center;
   border: solid 1px rgb(181, 177, 177) ;
@@ -94,54 +99,11 @@
 .back-btn { background: #f1f5f9; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; }
 .submit-btn.wide { width: 100%; margin-top: 20px; }
 
-
-.status-card1,.status-card2,.status-card3,.status-card4{
-  display: flex; 
-  padding: 25px;
-  padding-bottom: 0px;
-  border-radius: 16px;
-  max-width: 250px;
-  background: rgba(255,255,255,0.95);
-  border: 2px solid #e5e7eb;
-  box-shadow: 0 8px 24px rgba(15,23,42,0.08);
-  transition: transform 200ms ease, box-shadow 200ms ease;
-
-  .card-cont{
-    display: flex; 
-    flex-direction: column;
-    gap: 10px;margin-bottom: -25px;
-  }
-  .logoimg{margin-bottom: 10px;}
-
-  .count{
-    position: relative;
-    left: 35px;
-    bottom: 40px;
-    font-size: 30px;
-  }
-  .name{  
-    font-size: larger; 
-    font-weight: 800;}
-  .name,.status{
-    width: 100%;
-    position: relative;
-    bottom: 80px;
-    left: 90px;
-  }
+.paypal-content{
+  padding: 20px;color: black;
 }
-.status-card2{
-  .name,.status{
-    width: 100%;
-    position: relative;
-    bottom: 80px;
-    left: 80px;
-  }
-}
-.status-card1{
-  .name,.status{
-    width: 100%;
-    position: relative;
-    bottom: 80px;
-    left: 110px;
-  }
+
+.paypal-logo{color: #0f172a;font-size: 50px;
+  background-color: rgb(157, 26, 251);
+  border-radius: 50%;padding: 15px;
 }

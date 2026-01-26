@@ -18,7 +18,7 @@ function Dashboard() {
                     <div className="name">Active</div>
                     <div className="status">In Trasit</div>
                   </div>
-                  <div className="count"><h1>3</h1></div>
+                  <div className="count"><h1 className='dash-cnt'>3</h1></div>
                 </div>
 
                 <div className="status-card2" >
@@ -27,7 +27,7 @@ function Dashboard() {
                     <div className="name">Deliveried</div>
                     <div className="status">Completed</div>
                   </div>
-                  <div className="count"><h1>15</h1></div>
+                  <div className="count "><h1 className='dash-cnt'>15</h1></div>
                 </div>
 
                 <div className="status-card3" >
@@ -36,7 +36,7 @@ function Dashboard() {
                     <div className="name">Delayed</div>
                     <div className="status">Need Attention</div>
                   </div>
-                  <div className="count"><h1>1</h1></div>
+                  <div className="count"><h1 className='dash-cnt'>1</h1></div>
                 </div>
 
                 <div className="status-card4" >
@@ -45,7 +45,7 @@ function Dashboard() {
                     <div className="name">Cancelled</div>
                     <div className="status">Refunded</div>
                   </div>
-                  <div className="count"><h1>2</h1></div>
+                  <div className="count"><h1 className='dash-cnt'>2</h1></div>
                 </div>
             </div>
           </div>
