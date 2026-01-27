@@ -116,7 +116,7 @@ const UPI = ({ totalpaypal }) => {
         <div className="upi-message-section">
           <p className="msg">
             A payment request will be sent to your UPI app. Please approve it to
-            complete the transaction.
+            complete the  transaction.
           </p>
         </div>
       </form>
