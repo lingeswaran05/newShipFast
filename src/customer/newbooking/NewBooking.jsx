@@ -28,7 +28,7 @@ export default function NewBooking() {
       {step === 1 && <Shipmentdetails onNext={() => setStep(2)} />}
       {step === 2 && <Rateservice onBack={() => setStep(1)} onNext={(data) => { setRateData(data); setStep(3) }} />}
       {step === 3 && <Newpayments selectedRate={rateData} onNext={() => setStep(4)} />}
-      {step === 4 && <Labels />}
+      {step === 4 && <Labels setstep={setStep} />}
     </div>
   )
 }

@@ -1,34 +1,51 @@
 import './NewBooking.css'
-const Card = ()=>{return(
-  <><div className="h1">From Card Payment</div></>
-)}
-const UPI = ()=>{return(
-  <><div className="h1">From Upi Payment</div></>
-)}
-const NetBanking = ()=>{return(
-  <><div className="h1">From Net Banking Payment</div></>
-)}
 export default function Labels() {
-  return (
-    <div className="booking-card animate-fade-in">
-      <div className="success-icon">✓</div>
-      <h2 className="section-title">Payment Successful!</h2>
-      <p>Your shipment has been successfully booked.</p>
-      
-      <div className="tracking-box">
-        <p>Transaction ID: <strong>TXNYON5X60L1</strong></p>
-        <div className="tracking-badge">Tracking Number: SF1234567890</div>
-      </div>
+  const date=new Date();
+  const expectdate=new Date(date);
+  expectdate.setDate(date.getDate() + 3);
 
-      <div className="label-preview">
-        <div className="label-header">Shipping Label</div>
-        <div className="label-details">
-          <p><strong>From:</strong> John Doe, Mumbai</p>
-          <p><strong>To:</strong> Jane Smith, Delhi</p>
-          <p><strong>Weight:</strong> 2.5 kg</p>
+  return (
+<>
+     <div className="label-Card-content1">
+          <h1 className="success-child1">
+            <i className="bi bi-box"></i>
+          </h1>
+          <h2  className="label-child2">Booking Confirmed!</h2>
+          <p  className="label-child3">Your shipment has been successfully booked</p>
+          <div className="label-datas">
+            <div className="tracking-number">
+              <p className="name">Tracking Number</p>
+              <p className="value">SF123456790</p>
+            </div>
+            <div className="booking-date">
+              <p className="name">Booking Date</p>
+              <p className="value">{date.toLocaleString()}</p>
+            </div>
+            <div className="service-type">
+              <p className="name">Service Type</p>
+              <p className="value">Standard Delivery</p>
+            </div>
+            <div className="estimated-delivery">
+              <p className="name">Estimated Delivery</p>
+              <p className="value">{expectdate.toLocaleString()}</p>
+            </div>
+          </div>
+          <div className="label-Card-content2">
+            <h1 className="printer"><i className="bi bi-printer"></i></h1>
+            <h3>Shipping Label</h3>
+            <h3>Print and attach this label to your package</h3>
+            <div className="ship-data">
+              <h4>SF123456790</h4>
+              <h4>From: John Doe, Mumbai</h4>
+              <h4>To: Jane Smith, Delhi</h4>
+              <h4>Weight: 2.5 kg</h4>
+            </div>
+          </div>
+          <div className="label-buttons">
+            <button className="download-btn">Download Label (PDF)</button>
+            <button className="print-label">Print Label</button>
+          </div>
         </div>
-      </div>
-      <button className="submit-btn">Download Label</button>
-    </div>
+    </>
   )
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./NewBooking.css";
-const Paypal = ({ totalpaypal }) => {
-    // const [isprocessing,setIsprocessing]=useState(false);
-    
+const Paypal = ({ selectedRate }) => {
+  // const [isprocessing,setIsprocessing]=useState(false);
+
   return (
     <div className="paypal-content">
       <h1>
@@ -12,13 +12,12 @@ const Paypal = ({ totalpaypal }) => {
       <h3 className="desc">
         You will be redirected to PayPal to complete your payment securely
       </h3>
-      <h3>Amount: ₹{totalpaypal?.total}</h3>
+      <h3>Amount: ₹{selectedRate?.total|| "189.00"}</h3>
     </div>
   );
 };
 
-
-const Card = ({data,onchange}) => {
+const Card = ({ data, onchange }) => {
   return (
     <div className="Card-content">
       <h1 className="card-payment-name">
@@ -30,7 +29,7 @@ const Card = ({data,onchange}) => {
           <div className="number-field fields">
             <label>Card Number</label>
             <input
-            type="text"
+              type="text"
               name="cardNumber"
               value={data.cardNumber}
               onChange={onchange}
@@ -40,7 +39,7 @@ const Card = ({data,onchange}) => {
           <div className="expiry-field fields">
             <label>Expiry Date</label>
             <input
-            type="text"
+              type="text"
               name="ExpiryDate"
               value={data.ExpiryDate}
               onChange={onchange}
@@ -50,7 +49,7 @@ const Card = ({data,onchange}) => {
           <div className="cvv-field fields">
             <label>CVV</label>
             <input
-            type="password"
+              type="password"
               name="CVV"
               value={data.CVV}
               onChange={onchange}
@@ -73,8 +72,7 @@ const Card = ({data,onchange}) => {
     </div>
   );
 };
-const UPI = ({data,onChange}) => {
-
+const UPI = ({ data, onChange }) => {
   return (
     <div className="Card-content">
       <h1 className="upi-payment-name">
@@ -85,7 +83,7 @@ const UPI = ({data,onChange}) => {
           <div className="upiId-field fields">
             <label>UPI ID</label>
             <input
-            type="text"
+              type="text"
               name="upiId"
               value={data.upiId}
               onChange={onChange}
@@ -96,7 +94,7 @@ const UPI = ({data,onChange}) => {
         <div className="upi-message-section">
           <p className="msg">
             A payment request will be sent to your UPI app. Please approve it to
-            complete the  transaction.
+            complete the transaction.
           </p>
         </div>
       </form>
@@ -104,9 +102,7 @@ const UPI = ({data,onChange}) => {
   );
 };
 
-
-const NetBanking = (data,onChange) => {
-
+const NetBanking = ({data, onChange}) => {
   const banks = [
     "State Bank of India",
     "Indian Overseas Bank",
@@ -114,25 +110,27 @@ const NetBanking = (data,onChange) => {
     "Karur Vaisya Bank",
     "Canara Bank Of India",
     "HDFC Bank",
-    "ICICI Bank"
+    "ICICI Bank",
   ];
   return (
     <div className="Card-content">
       <h1 className="banking-payment-name">
         <i className="bi bi-bank"></i> Net Banking Payment
       </h1>
-      
+
       <div className="card-payment-grid">
         <div className="netbanking-field fields">
           <label>Select Your Bank</label>
           <div className="select-wrapper">
-            <select 
+            <select
               name="bankName"
               value={data.bankName}
               onChange={onChange}
               className="bank-select"
             >
-              <option value="" disabled>Choose your bank</option>
+              <option value="" disabled>
+                Choose your bank
+              </option>
               {banks.map((bank) => (
                 <option key={bank} value={bank}>
                   {bank}
@@ -143,10 +141,10 @@ const NetBanking = (data,onChange) => {
         </div>
       </div>
       {data.bankName && (
-        <div className="banking-message-section" >
+        <div className="banking-message-section">
           <p className="msg">
-            You selected <strong>{data.bankName}</strong>. 
-            You will be redirected to their secure login page.
+            You selected <strong>{data.bankName}</strong>. You will be
+            redirected to their secure login page.
           </p>
         </div>
       )}
@@ -155,51 +153,56 @@ const NetBanking = (data,onChange) => {
 };
 
 export default function Newpayments({ selectedRate, onNext }) {
-    const [method, setMethod] = useState("card");
-    const[showSuccess,setShowSuccess]=useState(false);
-    const [payData, setpayData] = useState({
-        cardNumber: "",ExpiryDate: "",
-        CVV: "",CardHolderName: "",upiId: "",bankName: ""
-    });
-    const handleDataChange = (e) => {
+  const [method, setMethod] = useState("card");
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [payData, setpayData] = useState({
+    cardNumber: "",
+    ExpiryDate: "",
+    CVV: "",
+    CardHolderName: "",
+    upiId: "",
+    bankName: "",
+  });
+  const handleDataChange = (e) => {
     const { name, value } = e.target;
     setpayData({ ...payData, [name]: value });
   };
-  
+
   const handleFinalSubmit = () => {
     console.log(`Submited method:${method} ,payment Data:`);
-    console.log("upi id:"+payData.upiId); 
-    if(method=='UPI'){
-        console.log(payData.upiId);        console.log("hi");
-
+    console.log("upi id:" + payData.upiId);
+    if (method == "UPI") {
+      console.log(payData.upiId);
+      console.log("hi");
     }
-    if(method=='Card'){
-        console.log(payData.cardNumber);
-        console.log(payData.CVV);
-        console.log(payData.CardHolderName);
-        console.log(payData.ExpiryDate);
+    if (method == "Card") {
+      console.log(payData.cardNumber);
+      console.log(payData.CVV);
+      console.log(payData.CardHolderName);
+      console.log(payData.ExpiryDate);
     }
-    if(method=='NETBANKING'){
-        console.log(payData.bankName); 
-               console.log("heio");
-
+    if (method == "NETBANKING") {
+      console.log(payData.bankName);
+      console.log("heio");
     }
     setShowSuccess(true);
-    setTimeout(
-        ()=>{
-            onNext();
-        },3000
-    )
+    setTimeout(() => {
+      onNext();
+    }, 3000);
   };
   return (
     <>
-        {showSuccess?
-        (   <div className="success-component">
-                <h2>Payment Successfull</h2>
-                <h4>transaction ID:TNX0381223-92-09</h4>
-                <p>redirecting to labeling page</p>
-            </div>
-        ):(
+      {showSuccess ? (
+         <div className="success-Card-content">
+          <h1 className="success-child1">
+            <i className="bi bi-check"></i>
+          </h1>
+          <h2  className="success-child2">Payment Successful !</h2>
+          <p  className="success-child3">Your paymert of {selectedRate?.total|| "191.16"} has been processed successfully</p>
+          <h4  className="success-child4">transaction ID:TNX0381223-92-09</h4>
+          <p  className="success-child5">Redirecting to labeling page...</p>
+        </div>
+      ) : (
         <>
         <h1>sample page</h1>
         <div className="payment-header">
@@ -207,8 +210,7 @@ export default function Newpayments({ selectedRate, onNext }) {
         </div>
         <div className="payment-layout animate-fade-in">
             <div className="booking-card-pmt">
-                
-                
+
             <div className="method-grid">
                 <div
                 className={`method-item status-card1 ${method === "PayPal" ? "active" : ""}`}
@@ -266,7 +268,7 @@ export default function Newpayments({ selectedRate, onNext }) {
                     </div>
                 ) : method == "PayPal" ? (
                     <div className="card-checkout">
-                    {<Paypal data={payData} onchange={handleDataChange}/>}
+                    {<Paypal data={selectedRate} onchange={handleDataChange}/>}
                     </div>
                 ) : method == "NETBANKING" ? (
                     <div className="NetBanking-checkout">
@@ -283,7 +285,6 @@ export default function Newpayments({ selectedRate, onNext }) {
                 Pay ₹{selectedRate?.total}
             </button>
             </div>
-
             <div className="order-summary-sidebar">
             <div className="summary-card">
                 <h4 className="section-heading">Order Summary</h4>
@@ -310,7 +311,7 @@ export default function Newpayments({ selectedRate, onNext }) {
                 <div><hr /></div>
                 <div className="service">
                     <p className="service-total">Total Amount</p>
-                    <div className="values">₹191.16</div>
+                    <div className="values">₹{selectedRate?.total}</div>
                 </div>
                 </div>
                 <div className="secure-badge">
@@ -326,7 +327,8 @@ export default function Newpayments({ selectedRate, onNext }) {
             </div>
         </div>
         </>
-        )}
-        </>
+       
+      )}
+    </>
   );
 }
