@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './NewBooking.css'
 import Shipmentdetails from './Shipmentdetails'
 import Rateservice from './Rateservice'
-import Newpayments from './Newpayments'
+import Newpayments from './Newpayments2'
 import Labels from './Labels'
 
 export default function NewBooking() {
@@ -25,7 +25,6 @@ export default function NewBooking() {
           <span className="noofst">4</span>Label
         </button>
       </div>
-
       {step === 1 && <Shipmentdetails onNext={() => setStep(2)} />}
       {step === 2 && <Rateservice onBack={() => setStep(1)} onNext={(data) => { setRateData(data); setStep(3) }} />}
       {step === 3 && <Newpayments selectedRate={rateData} onNext={() => setStep(4)} />}

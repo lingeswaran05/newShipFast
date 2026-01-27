@@ -14,6 +14,8 @@ const Paypal = ({ totalpaypal }) => {
     </div>
   );
 };
+
+
 const Card = ({ totalpaypal }) => {
   const [cardData, setCardData] = useState({
     cardNumber: "",
@@ -28,22 +30,24 @@ const Card = ({ totalpaypal }) => {
   };
   
   const handleSubmit = (e) => {
-    console.log("From card payment :" + totalpaypal);
     e.preventDefault();
-    console.log(cardData);
+    console.log("From card payment :" + totalpaypal);
+    console.log("Card Data State:"+cardData);
   };
+
   return (
     <div className="Card-content">
       <h1 className="card-payment-name">
         <i class="bi bi-credit-card"></i> Debit/Credit Card Payment
       </h1>
 
-      <form action="submit" onClick={handleSubmit}>
+      <form action="submit" onSubmit={handleSubmit}>
         <div className="card-payment-grid">
           <div className="number-field fields">
             <label>Card Number</label>
             <input
-              name="cardName"
+            type="text"
+              name="cardNumber"
               value={cardData.cardNumber}
               onChange={handleChange}
               placeholder="1234 5678 9012 3456"
@@ -52,7 +56,8 @@ const Card = ({ totalpaypal }) => {
           <div className="expiry-field fields">
             <label>Expiry Date</label>
             <input
-              name="expiryDate"
+            type="text"
+              name="ExpiryDate"
               value={cardData.ExpiryDate}
               onChange={handleChange}
               placeholder="MM/YY"
@@ -61,16 +66,19 @@ const Card = ({ totalpaypal }) => {
           <div className="cvv-field fields">
             <label>CVV</label>
             <input
-              name="cvv"
+            type="password"
+              name="CVV"
               value={cardData.CVV}
               onChange={handleChange}
               placeholder="123"
+              maxLength="3"
             />
           </div>
           <div className="holder-name-field fields">
             <label>Card Holder Name</label>
             <input
-              name="cardHolderName"
+              type="text"
+              name="CardHolderName"
               value={cardData.CardHolderName}
               onChange={handleChange}
               placeholder="John Doe"
@@ -89,23 +97,24 @@ const UPI = ({ totalpaypal }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpiData({ ...upiData, [name]: value });
+      console.log("From UPI payment :" + totalpaypal);
   };
   
   const handleSubmit = (e) => {
-    console.log("From UPI payment :" + totalpaypal);
     e.preventDefault();
     console.log(upiData);
   };
   return (
     <div className="Card-content">
       <h1 className="upi-payment-name">
-        <i class="bi bi-currency-dollar"></i> UPI ID Payment
+        <i class="bi bi-phone"></i> UPI ID Payment
       </h1>
       <form action="submit" onClick={handleSubmit}>
         <div className="card-payment-grid">
           <div className="upiId-field fields">
             <label>UPI ID</label>
             <input
+            type="text"
               name="upiId"
               value={upiData.upiId}
               onChange={handleChange}
@@ -222,7 +231,7 @@ export default function Newpayments({ selectedRate, onNext }) {
               onClick={() => setMethod("UPI")}
             >
               <div className="card-cont">
-                <i class="logoimg bi bi-currency-dollar"></i>
+                <i class="logoimg bi bi-phone"></i>
                 <div className="name">UPI </div>
                 <div className="status">Google Pay,PhonePe</div>
               </div>
@@ -264,23 +273,48 @@ export default function Newpayments({ selectedRate, onNext }) {
               )}
             </div>
           </div>
-          <button className="submit-btn wide" onClick={onNext}>
+          <button className="submit-btn wide"  onClick={onNext}>
             Pay ₹{selectedRate?.total}
           </button>
         </div>
 
         <div className="order-summary-sidebar">
-          <div className="booking-card">
+          <div className="summary-card">
             <h4 className="section-heading">Order Summary</h4>
-            <div className="summary-row">
-              <span>Service</span> <span>{selectedRate?.title}</span>
-            </div>
-            <div className="summary-row">
-              <span>Total</span> <span>₹{selectedRate?.total}</span>
+            <div className="summary-lists">
+              <div className="service">
+                <p className="service-name">Service</p>
+                <div className="values">₹148.00</div>
+              </div>
+              <div className="service">
+                <p className="service-type">Type</p>
+                <div className="values">₹11.84</div>
+              </div><div className="service">
+                <p className="service-base-rate">Base Rate</p>
+                <div className="values">₹148.00</div>
+              </div>
+              <div className="service">
+                <p className="service-fuel">Fuel Charge(8%)</p>
+                <div className="values">₹11.84</div>
+              </div>
+              <div className="service">
+                <p className="service-gst">GST(18%)</p>
+                <div className="values">₹26.64</div>
+              </div>
+              <div><hr /></div>
+              <div className="service">
+                <p className="service-total">Total Amount</p>
+                <div className="values">₹191.16</div>
+              </div>
             </div>
             <div className="secure-badge">
-              <i className="lock-icon">🔒</i> Your payment is encrypted and
-              secure
+              <p><i className="bi bi-shield-check"></i> Secure Payment</p>
+              <div className="secue-message">Your payment information is encrypted and secure</div>
+            </div>
+            <hr />
+            <div className="security-detail">
+              <p className="bit"><i class="bi bi-check-circle-fill"></i>  256-bit SSL Encryption</p>
+              <p className="pci-dss"><i class="bi bi-check-circle-fill"></i>  PCI DSS Compliant</p>
             </div>
           </div>
         </div>
