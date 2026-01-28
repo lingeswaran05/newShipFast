@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./NewBooking.css";
 const Paypal = ({ selectedRate }) => {
-  // const [isprocessing,setIsprocessing]=useState(false);
 
   return (
     <div className="paypal-content">

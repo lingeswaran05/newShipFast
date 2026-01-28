@@ -7,7 +7,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Dashboard from './Dashboard';
 import NewBooking from './newbooking/NewBooking'
 import MyShipments from './MyShipments'
-import Support from './Support'
+import Support from './support/Support'
 import Payments from './Payment'
 import Profile from './Profile'
 function Customer() {
