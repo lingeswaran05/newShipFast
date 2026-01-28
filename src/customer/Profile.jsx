@@ -3,7 +3,6 @@ import "./Profile.css";
 
 const Profile = () => {
   const [editMode, setEditMode] = useState(false);
-
   const [profile, setProfile] = useState({
     fullName: "717823s132",
     email: "717823s132@kce.ac.in",
@@ -16,7 +15,6 @@ const Profile = () => {
     loyaltyPoints: 2450,
     status: "Verified"
   });
-
   const handleChange = e => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
